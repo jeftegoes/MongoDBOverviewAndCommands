@@ -4,6 +4,7 @@
 
 - [1. Whats is MongoDb?](#1-whats-is-mongodb)
   - [1.1. Json format and in collections as documents](#11-json-format-and-in-collections-as-documents)
+- [2. Commands](#2-commands)
 
 ## 1. Whats is MongoDb?
 
@@ -19,3 +20,25 @@
   - Queries can be written in any field or by range.
   - If we compare the structures in MongoDB with the structures in their relational databases, it uses Collection instead of Tables and uses Documents instead of rows.
 
+## 2. Commands
+
+- Enter into a mongo shell
+  - mongo
+- Show all databases
+  - show databases
+  - show dbs
+- Show all collections
+  - show collections
+- Create a new database
+  - use `<database_name>`
+- Create new collection
+  - db.createCollection('`<collection_name>`')
+- Insert any data
+  - db.`<collection_name>`.insert('`{<data>}`')
+- Insert any data in mass
+  - db.`<collection_name>`.insertMany('`[{<data1>}, {<data2>}, {<data3>}]`')
+- Show all itens of collection
+  - db.`<collection_name>`.find({})
+  - db.`<collection_name>`.find({}).pretty() # Arrange json
+- Remove all itens of collection
+  - db.`<collection_name>`.remove({})

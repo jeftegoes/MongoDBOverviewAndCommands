@@ -4,7 +4,10 @@
 
 - [1. Whats is MongoDb?](#1-whats-is-mongodb)
   - [1.1. Json format and in collections as documents](#11-json-format-and-in-collections-as-documents)
-- [2. Commands](#2-commands)
+- [2. SQL vs NoSQL](#2-sql-vs-nosql)
+- [3. Summary](#3-summary)
+- [4. String connection](#4-string-connection)
+- [5. Commands](#5-commands)
 
 # 1. Whats is MongoDb?
 
@@ -13,15 +16,59 @@
 
 ## 1.1. Json format and in collections as documents
 
-- Every record in MongoDB is actually a document. Documents are stored in MongoDB in JSON like Binary JSON (BSN) format.
-- BSON documents are objects that contain an ordered list of the elements they store. Each element consists of a domain name and a certain type of value.
-- Document based NoSql database
+- Every record in MongoDB is actually a **document**.
+  - Documents are stored in MongoDB in JSON like Binary JSON (BSON) format.
+- **BSON** documents are objects that contain an ordered list of the elements they store.
+  - Each element consists of a domain name and a certain type of value.
+  - BSON example:
+    ```
+    {
+      "name": "Jefté",
+      "age": 33,
+      "address": {
+        "city": "Brazil"
+      },
+      "hobbies": [
+        {
+          "name": "Lego"
+        },
+        {
+          "name": "Games"
+        }
+      ]
+    }
+    ```
+- **Document based NoSql database**
   - It keeps the data structurally in Json format and in documents.
   - Queries can be written in any field or by range.
   - If we compare the structures in MongoDB with the structures in their relational databases, it uses Collection instead of Tables and uses Documents instead of rows.
+    ![MongoDB Structure](/Images/MongoDBStructure.png)
 
-# 2. Commands
+# 2. SQL vs NoSQL
 
+| SQL                                                                         | NoSQL                                                       |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Data uses Schemas                                                           | Schema-less                                                 |
+| Relations!                                                                  | No (or very few) Relations                                  |
+| Data is distributed across multiple tables                                  | Data is typically merged / nested in a few collections      |
+| Horizontal scaling is difficult / impossible; Vertical scaling is possible. | Both horizontal and vertical scaling is possible            |
+| Limitations for lots of (thousands) read and write queries per second.      | Great performance for mass (simple) read and write requests |
+
+# 3. Summary
+
+- Alternative to SQL databases.
+- No strict schemas, fewer relations.
+- You can of course use schemas and reference-based relations but you got more flexibility.
+- Often, relations are also created by embedding other documents/ data.
+
+# 4. String connection
+
+- `mongodb://localhost:27017` or `mongodb://mongoadmin:Master123456@localhost:27017/<database_name>?authSource=admin`
+
+# 5. Commands
+
+- To get a Connection String.
+  - `db.getMongo()`
 - Enter into a mongo shell
   - `mongo` or `mongosh`
   - Connect with username
